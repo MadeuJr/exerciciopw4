@@ -2,9 +2,15 @@ const express = require('express');
 const router = express.Router();
 const alunoController = require('../controllers/alunoController.js');
 
-router.get('/alunos');
+router.get('/alunos', alunoController.findAllAluno);
 
-router.get('/alunos/cadastrar', alunoController.cadastraAluno);
+router.post('/alunos/cadastrar', alunoController.cadastraAluno);
+
+router.delete('/alunos/deletar', alunoController.removerAluno);
+
+router.put('/alunos/atualizar', alunoController.updateAluno);
+
+router.get('/alunos/:registroAluno', alunoController.findOneAluno)
 
 
 
