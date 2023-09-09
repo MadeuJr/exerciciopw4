@@ -16,7 +16,7 @@ exports.cadastraAluno = (req, res) => {
 exports.removerAluno = (req, res) => {
     try {
         let removalIndex = arrayAlunos.findIndex(
-            (item) => item.registroAluno == req.body.registroAlunoDelete
+            (item) => item.registroAluno == req.body.registroAluno
         );
         console.log(removalIndex);
         if (removalIndex > -1) {
@@ -33,10 +33,11 @@ exports.removerAluno = (req, res) => {
 exports.updateAluno = (req, res) => {
     try {
         let updateIndex = arrayAlunos.findIndex(
-            (item) => item.registroAluno == req.body.registroAlunoUpdate
+            (item) => item.registroAluno == req.body.registroAluno
         );
         console.log(updateIndex);
         if (updateIndex > -1) {
+            console.log(req.body);
             let atualizaAluno = new Aluno(req.body);
             arrayAlunos[updateIndex] = atualizaAluno;
             return res.status(200).send(arrayAlunos);
